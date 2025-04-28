@@ -21,6 +21,9 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
+  basePath: '/demorungame',
+  assetPrefix: '/demorungame/',
+  output: 'export',
 }
 
 export default nextConfig
