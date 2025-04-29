@@ -165,7 +165,7 @@ const CENTRAL_SPOTS = SPOTS_DATA.filter((spot) => [12, 16, 19, 20].includes(spot
 const EAST_SPOTS = SPOTS_DATA.filter((spot) => [4, 17, 22].includes(spot.id))
 const SOUTH_SPOTS = SPOTS_DATA.filter((spot) => [18].includes(spot.id))
 
-export default function RunningEventPage() {
+export default function Page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
 
@@ -214,12 +214,12 @@ export default function RunningEventPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 頂部導航 */}
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-40 w-full border-b bg-emerald-50/95 backdrop-blur supports-[backdrop-filter]:bg-emerald-50/60">
         <div className="container mx-auto px-4 md:px-6 flex h-16 items-center">
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Footprints className="h-6 w-6 text-emerald-500" />
             <span className="text-xl font-bold">走跑高雄2.0</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="ml-auto hidden md:flex items-center gap-4 sm:gap-6">
@@ -277,14 +277,14 @@ export default function RunningEventPage() {
             </Link>
             <div className="flex gap-2">
               <Button
-                className="border border-emerald-600 text-emerald-600 rounded-full bg-white hover:bg-emerald-50"
+                className="border border-emerald-600 text-emerald-600 rounded-full bg-white hover:bg-emerald-600 hover:text-white px-6 py-2"
                 variant="outline"
                 onClick={() => window.open("https://www.marathonsworld.com/product/online_marathon/5/agreement.php?rid=358&", "_blank")}
               >
                 個人報名
               </Button>
               <Button
-                className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-6 py-2"
                 onClick={() => window.open("https://www.marathonsworld.com/product/online_marathon/5/agreement.php?rid=368&", "_blank")}
               >
                 團體報名
@@ -384,7 +384,7 @@ export default function RunningEventPage() {
                 聯絡資訊
               </Link>
               <Button
-                className="w-full border border-emerald-600 text-emerald-600 rounded-full mb-2 bg-white hover:bg-emerald-50"
+                className="w-full border border-emerald-600 text-emerald-600 rounded-full mb-2 bg-white hover:bg-emerald-600 hover:text-white"
                 variant="outline"
                 onClick={() => window.open("https://www.marathonsworld.com/product/online_marathon/5/agreement.php?rid=358&", "_blank")}
               >
@@ -404,24 +404,22 @@ export default function RunningEventPage() {
       <main className="flex-1">
         {/* 英雄區塊 */}
         <section
-          className="relative w-full min-h-[400px] md:min-h-[900px] flex items-center justify-center bg-cover bg-center"
-          style={{ backgroundImage: "url(https://www.marathonsworld.com/ExploreKaohsiung/images/header-bg.png)" }}
+          className="relative w-full min-h-[400px] md:min-h-[900px] flex items-center justify-center bg-emerald-50 bg-cover bg-center"
+          style={{ backgroundImage: "url(/demorungame/images/Hero_bg.png)" }}
         >
           <div className="container mx-auto px-4 md:px-6 h-full flex items-center justify-center">
             {/* 文字區塊 */}
             <div className="flex flex-col justify-center items-center w-full max-w-xl mx-auto text-center py-16 md:py-24 lg:hidden">
               <div className="flex flex-col gap-2 min-[400px]:flex-row md:flex-row">
                 <Button
-                  size="lg"
-                  className="border border-emerald-600 text-emerald-600 rounded-full mb-2 bg-white hover:bg-emerald-50"
+                  className="border border-emerald-600 text-emerald-600 rounded-full bg-white hover:bg-emerald-600 hover:text-white px-6 py-2"
                   variant="outline"
                   onClick={() => window.open("https://www.marathonsworld.com/product/online_marathon/5/agreement.php?rid=358&", "_blank")}
                 >
                   個人報名
                 </Button>
                 <Button
-                  size="lg"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-6 py-2"
                   onClick={() => window.open("https://www.marathonsworld.com/product/online_marathon/5/agreement.php?rid=368&", "_blank")}
                 >
                   團體報名
@@ -1523,8 +1521,8 @@ export default function RunningEventPage() {
                 <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">如有任何問題，歡迎聯繫我們</p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl gap-8 py-6 md:grid-cols-2">
-              <div className="space-y-6">
+            <div className="mx-auto grid max-w-5xl gap-8 py-6 md:grid-cols-2 items-stretch">
+              <div className="space-y-6 h-full"> {/* 左側卡片 */}
                 <div className="rounded-xl border p-6 bg-white shadow-sm">
                   <div className="space-y-4">
                     <div className="flex items-start gap-4">
@@ -1562,7 +1560,7 @@ export default function RunningEventPage() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-xl border overflow-hidden shadow-sm h-[400px]">
+              <div className="rounded-xl border overflow-hidden shadow-sm h-[400px] h-full"> {/* 右側地圖 */}
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.662373078722!2d120.30099731541928!3d22.63807398513867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0491b7f6e4a9%3A0x4a9f6bd9cac91373!2z6auY6ZuE5biC5pS_5bqc6YOo!5e0!3m2!1szh-TW!2stw!4v1647916715612!5m2!1szh-TW!2stw!4v1647916715612"
                   width="100%"
